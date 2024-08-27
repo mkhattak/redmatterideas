@@ -1,3 +1,29 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "www.redmatterideas.com" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
-title: "" # the name of your site, e.g. ACME Corp.
+title: "RedMatter Ideas" # the name of your site, e.g. ACME Corp.
+
+plugins:
+  - jekyll-postcss
+
+postcss:
+  cache: false
+
+collections: 
+  authors:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
