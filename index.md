@@ -2,9 +2,6 @@
 layout: default
 title: "Welcome to RedMatter Ideas"
 ---
-<h1 class="font-['concourse4'] text-4xl">Ideas</h1>
-<br>
-
 <ul>
   {% for post in site.posts %}
     <li>
