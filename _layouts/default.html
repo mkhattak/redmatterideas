@@ -1,36 +1,68 @@
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>{{ page.title }} - {{ site.title }}</title>
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
-  </head>
-  <body class="container mx-auto mt-8 p-4">
-    <header>
-      <table width=100%>
-        <tr>
-          <td>
-            <table>
-              <tr>
-                <td><a href="default.html"><img src="/assets/images/RMSmall_whitebg.jpg"></a></td>
-                <td class="text-5xl">|</td>
-                <td class="text-4xl font-['concourse8']">IDEAS</td>
-              </tr>
-            </table>
-          <td style="text-align: right;">{% include navigation.html %}</td>
-        </tr>
-      </table>
-      <br>
-    </header>    
-    <div>     
-      <hr>
-      <br>
-      <p class="text-lg">{{ content }}</p>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+</head>
+
+<body class="container mx-auto mt-8 p-4">
+  <header>
+    <table width=100%>
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <td><a href="/"><img src="/assets/images/RMSmall_whitebg.jpg"></a></td>
+              <td class="text-5xl">|</td>
+              <td class="text-4xl font-['concourse8']">IDEAS</td>
+            </tr>
+          </table>
+        <td style="text-align: right;">{% include navigation.html %}</td>
+      </tr>
+    </table>
+    <br>
+  </header>
+  <div>
+    <hr>
+    <br>
+    <p class="text-lg">{{ content }}</p>
+    <div>
+      {% if paginator.total_pages > 1 %}
+      <div class="pagination">
+        {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
+        {% else %}
+        <span>&laquo; Prev</span>
+        {% endif %}
+
+        {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+        <em>{{ page }}</em>
+        {% elsif page == 1 %}
+        <a href="/">{{ page }}</a>
+        {% else %}
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+        {% else %}
+        <span>Next &raquo;</span>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
     <footer>
       <br>
       <hr>
+      <a href="#">Download our capability sheet</a>
     </footer>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>

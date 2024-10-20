@@ -4,6 +4,7 @@ title: "RedMatter Ideas" # the name of your site, e.g. ACME Corp.
 
 plugins:
   - jekyll-postcss
+  - jekyll-paginate
 
 postcss:
   cache: false
@@ -11,6 +12,9 @@ postcss:
 collections: 
   authors:
     output: true
+
+paginate: 5
+paginate_path: "/page:num/"
 
 defaults:
   - scope:
