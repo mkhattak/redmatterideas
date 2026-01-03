@@ -1,0 +1,15 @@
+---
+---
+
+@import 'fonts';
+
+// Font family overrides
+$font-family-base: 'concourse_4', sans-serif;           // Body text
+$headings-font-family: 'concourse_5', sans-serif;       // h1, h2, h3, h4, h5, h6
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+.nav-link.active {
+  color: red !important;
+  font-weight: 700;
+}
