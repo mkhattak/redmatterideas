@@ -5,6 +5,8 @@
     <meta charset="utf-8">
     <title>{{ page.title }} - {{ site.title }}</title>
     <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    {% feed_meta %}
+    {% seo %}
   </head>
   <header>
     {% include navigation.html %}
@@ -14,5 +16,8 @@
       {{ content }}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {% if jekyll.environment == "production" %}
+      <script src="my-analytics-script.js"></script>
+    {% endif %}
   </body>
 </html>
